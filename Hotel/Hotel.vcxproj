@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chambre.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="date.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chambre.h" />
     <ClInclude Include="client.h" />
     <ClInclude Include="date.h" />
   </ItemGroup>
