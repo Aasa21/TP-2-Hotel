@@ -6,6 +6,22 @@ Chambre::Chambre(int Numero, string Type, bool Disponible, int Price)
 	this->Type = Type;
 	this->Disponible = Disponible;
 	this->Price = Price;
+	if (Type == "Single")
+	{
+		Price = 70;
+	}
+	else if (Type == "Double")
+	{
+		Price = 120;
+	}
+	else if (Type == "Suite")
+	{
+		Price = 230;
+	}
+	else
+	{
+		cout << "Erreur de type de chambre" << endl;
+	}
 }
 
 int Chambre::getNumero() const

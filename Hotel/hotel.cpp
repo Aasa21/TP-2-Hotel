@@ -1,10 +1,9 @@
 #include "hotel.h"
 
-Hotel::Hotel(string Name, string Location, int Chambres)
+Hotel::Hotel(string Name, string Location)
 {
 	this->Name = Name;
 	this->Location = Location;
-	this->Chambres = Chambres;
 }
 
 string Hotel::getName() const
@@ -17,7 +16,7 @@ string Hotel::getLocation() const
 	return Location;
 }
 
-int Hotel::getChambres() const
+vector<Chambre> Hotel::getChambres() const
 {
 	return Chambres;
 }
@@ -34,4 +33,10 @@ void Hotel::setLocation()
 
 void Hotel::setChambres()
 {
+}
+
+void Hotel::AjouterChambre(Chambre ch)
+{
+	Chambres.push_back(ch);
+	
 }

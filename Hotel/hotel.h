@@ -1,21 +1,24 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+#include "Chambre.h"
 
 using namespace std;
 
 class Hotel
 {
 public:
-	Hotel(string Name, string Location, int Chambres);
+	Hotel(string Name, string Location);
 	string getName() const;
 	string getLocation() const;
-	int getChambres() const;
+	vector<Chambre> getChambres() const;
+	void AjouterChambre(Chambre ch);
 	void setName();
 	void setLocation();
 	void setChambres();
 private:
-	int Chambres;
+	vector<Chambre> Chambres;
 	string Location;
 	string Name;
 };
