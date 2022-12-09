@@ -1,26 +1,21 @@
 #include "Chambre.h"
 
-Chambre::Chambre(int Numero, string Type, bool Disponible, int Price)
+Chambre::Chambre(int Numero, string Type, bool Disponible)
 {
 	this->Numero = Numero;
 	this->Type = Type;
 	this->Disponible = Disponible;
-	this->Price = Price;
-	if (Type == "Single")
+	if (Type == "Simple")
 	{
-		Price = 70;
+		this->Price = 70;
 	}
 	else if (Type == "Double")
 	{
-		Price = 120;
+		this->Price = 120;
 	}
 	else if (Type == "Suite")
 	{
-		Price = 230;
-	}
-	else
-	{
-		cout << "Erreur de type de chambre" << endl;
+		this->Price = 250;
 	}
 }
 

@@ -21,5 +21,6 @@ private:
 	vector<Chambre> Chambres;
 	string Location;
 	string Name;
+	string ID;
 };
 

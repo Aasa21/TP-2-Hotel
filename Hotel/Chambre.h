@@ -8,7 +8,7 @@ class Chambre
 {
 public:
 	//Constructeur
-	Chambre(int Numero = 0, string Type = 0, bool Disponible = true, int Price = 0);
+	Chambre(int Numero = 0, string Type = 0, bool Disponible = true);
 	//Getters et Setters
 	int getNumero() const;
 	string getType() const;

@@ -33,6 +33,7 @@ void Hotel::setLocation()
 
 void Hotel::setChambres()
 {
+	this->Chambres = Chambres;
 }
 
 void Hotel::AjouterChambre(Chambre ch)
