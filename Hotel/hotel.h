@@ -11,7 +11,7 @@ using namespace std;
 class Hotel
 {
 public:
-	Hotel(string Name, string Location, string ID);
+	Hotel(string Name = "", string Location = "", string ID = "");
 	string getName() const;
 	string getLocation() const;
 	string getId() const;
