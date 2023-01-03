@@ -7,15 +7,15 @@ Chambre::Chambre(int Numero, string Type, bool Disponible)
 	this->Disponible = Disponible;
 	if (Type == "Simple")
 	{
-		this->Price = 70;
+		this->Price = 100;
 	}
 	else if (Type == "Double")
 	{
-		this->Price = 120;
+		this->Price = 125;
 	}
 	else if (Type == "Suite")
 	{
-		this->Price = 250;
+		this->Price = 210;
 	}
 }
 

@@ -3,19 +3,25 @@
 #include "Chambre.h"
 #include "hotel.h"
 
+
 using namespace std;
 
 int main()
 {
-	Hotel hotel("Hotel", "Paris");
-	Chambre chambre(1, "Simple", true);
-	Chambre chambre2(2, "Double", true);
-	Chambre chambre3(3, "Suite", true);
-	Chambre chambre4(4, "Simple", true);
-	hotel.AjouterChambre(chambre);
-	hotel.AjouterChambre(chambre2);
-	hotel.AjouterChambre(chambre3);
-	hotel.AjouterChambre(chambre4);
-	Client client;
+	Hotel hotel("Hotel", "Berlin", "ID");
+	for (int i = 0; i < 3; i++) {
+		Chambre chambrei(i, "Simple", true);
+		hotel.AjouterChambre(chambrei);
+	};
+	for (int j = 3; j < 8; j++) {
+		Chambre chambrej(j, "Double", true);
+		hotel.AjouterChambre(chambrej);
+	};
+	for (int k = 8; k < 10; k++) {
+		Chambre chambrek(k, "Suite", true);
+		hotel.AjouterChambre(chambrek);
+	};
+	
+	cout << hotel.getId() << endl;
 	return 0;
 }
