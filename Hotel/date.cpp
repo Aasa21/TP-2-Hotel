@@ -4,64 +4,113 @@ using namespace std;
 
 Date::Date(int Day, int Month, int Year)
 {
-	cout << "Entrez le jour de la reservation" << endl;
-	cin >> Day;
-	if (Day < 1 || Day > 31)
+	if (DateValide(Day, Month, Year))
 	{
-		do
-		{
-			cout << "Le jour doit etre compris entre 1 et 31" << endl;
-			cin >> Day;
-		} while (Day < 1 || Day > 31);
+		_Day = Day;
+		_Month = Month;
+		_Year = Year;
 	}
-	
-	cout << "Entrez le mois de la reservation" << endl;
-	cin >> Month;
-	if (Month < 1 || Month > 12)
-	{ 
-		do
-		{
-			cout << "Le mois doit etre compris entre 1 et 12" << endl;
-			cin >> Month;
-		}
-	while (Month < 1 || Month > 12);
+	else
+	{
+		throw invalid_argument("Date invalide");
 	}
-	
-	cout << "Entrez l'annee de la reservation" << endl;
-	cin >> Year;
-	cout << "La date du debut de la reservation est le " << Day << "/" << Month << "/" << Year << endl;
-	
-	setDay(Day);
-	setMonth(Month);
-	setYear(Year);
 }
 
-void Date::setDay(int Day)
+Date::Date()
 {
-	this->Day = Day;
-}
-
-void Date::setMonth(int Month)
-{
-	this->Month = Month;
-}
-
-void Date::setYear(int Year)
-{
-	this->Year = Year;
+	time_t t = time(0);
+	struct tm* now = localtime(&t);
+	_Year = now->tm_year + 1900;
+	_Month = now->tm_mon + 1;
+	_Day = now->tm_mday;
 }
 
 int Date::getDay() const
 {
-	return Day;
+	return _Day;
 }
 
 int Date::getMonth() const
 {
-	return Month;
+	return _Month;
 }
 
 int Date::getYear() const
 {
-	return Year;
+	return _Year;
+}
+
+bool Date::DateValide(int d, int m, int y)
+{
+	if (y < 0)
+	{
+		return false;
+	}
+	if (m < 1 || m > 12)
+	{
+		return false;
+	}
+	if (d < 1 || d > 31)
+	{
+		return false;
+	}
+	if (m == 2 && d > 29)
+	{
+		return false;
+	}
+	if (m == 4 && d > 30)
+	{
+		return false;
+	}
+	if (m == 6 && d > 30)
+	{
+		return false;
+	}
+	if (m == 9 && d > 30)
+	{
+		return false;
+	}
+	if (m == 11 && d > 30)
+	{
+		return false;
+	}
+	return true;
+}
+
+ostream& operator<<(ostream& os, const Date& date)
+{
+	os << date._Day << "/" << date._Month << "/" << date._Year;
+	return os;
+}
+
+bool Date::operator>(const Date& date) const
+{
+	if (_Year > date.getYear())
+	{
+		return true;
+	}
+	else if (_Year == date.getYear())
+	{
+		if (_Month > date.getMonth())
+		{
+			return true;
+		}
+		else if (_Month == date.getMonth())
+		{
+			if (_Day > date.getDay())
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool Date::operator==(const Date& date) const
+{
+	if (_Year == date.getYear() && _Month == date.getMonth() && _Day == date.getDay())
+	{
+		return true;
+	}
+	return false;
 }

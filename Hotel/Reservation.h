@@ -11,20 +11,8 @@ using namespace std;
 class Reservation
 {
 public:
-	Reservation(Chambre chambre, Hotel hotel);
-	int getDuree() const;
-	int getTotalPrice() const;
-	Date getDate() const;
-	string getIDClient() const;
-	int getNumero() const;
-	int getPrice() const;
-	Hotel getId() const;
-	void setDate();
-	void setClient();
-	void setChambre();
-	void setHotel();
-	void setPrice();
-	void setTotalPrice();
+	Reservation(Date DateDebut, Hotel& hotel, Client& client, Chambre& chambre);
+	
 	
 private:
 	Date date;

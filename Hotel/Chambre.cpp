@@ -1,60 +1,44 @@
 #include "Chambre.h"
 
-Chambre::Chambre(int Numero, string Type, bool Disponible)
+Chambre::Chambre(int Price, unsigned int Numero, string Type, bool Disponible)
 {
-	this->Numero = Numero;
-	this->Type = Type;
-	this->Disponible = Disponible;
-	if (Type == "Simple")
-	{
-		this->Price = 100;
-	}
-	else if (Type == "Double")
-	{
-		this->Price = 125;
-	}
-	else if (Type == "Suite")
-	{
-		this->Price = 210;
-	}
-}
-
-int Chambre::getNumero() const
-{
-	return Numero;
-}
-
-string Chambre::getType() const
-{
-	return Type;
-}
-
-bool Chambre::getDisponible() const
-{
-	return Disponible;
+	_Numero = Numero;
+	_Type = Type;
+	_Disponible = Disponible;
+	_Price = Price;
 }
 
 int Chambre::getPrice() const
 {
-	return Price;
+	return _Price;
 }
 
-void Chambre::setNumero(int Numero)
+unsigned int Chambre::getNumero() const
 {
-	this->Numero = Numero;
+	return _Numero;
 }
-
-void Chambre::setType(int NbLits)
+bool Chambre::getDisponible() const
 {
-	this->Type = Type;
+	return _Disponible;
 }
 
 void Chambre::setDisponible(bool Disponible)
 {
-	this->Disponible = Disponible;
+	_Disponible = Disponible;
+}
+
+string Chambre::getType() const
+{
+	return _Type;
 }
 
 void Chambre::setPrice(int Price)
 {
-	this->Price = Price;
+	_Price = Price;
+}
+
+std::ostream& operator<<(std::ostream& os, const Chambre& chambre)
+{
+	os << "Chambre " << chambre._Numero << " de type " << chambre._Type << " coute : " << chambre._Price << " euros" << " et est " << (chambre._Disponible ? "disponible" : "indisponible");
+	return os;
 }

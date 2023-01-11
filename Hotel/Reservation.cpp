@@ -1,6 +1,6 @@
 #include "Reservation.h"
 
-Reservation::Reservation(Chambre chambre, Hotel hotel)
+Reservation::Reservation()
 {
 	this->client = client.getID();
 	this->chambre = chambre.getNumero();

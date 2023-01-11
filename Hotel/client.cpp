@@ -2,48 +2,29 @@
 
 Client::Client(string FirstName, string LastName, string ID)
 {
-	this->FirstName = FirstName;
-	this->LastName = LastName;
-	this->ID = ID;
+	_FirstName = FirstName;
+	_LastName = LastName;
+	_ID = ID;
 
-	cout << "Entrez le prenom du client :" << endl;
-	cin >> FirstName;
-	
-	cout << "Entrez le nom du client :" << endl;
-	cin >> LastName;
-	
-	ID = FirstName.substr(0, 1);
-	ID += LastName;
-	cout << "L'ID du client est : " << ID << endl;
-	
 }
 	
 string Client::getFirstName() const
 {
-	return FirstName;
+	return _FirstName;
 }
 
 string Client::getLastNane() const
 {
-	return LastName;
+	return _LastName;
 }
 
 string Client::getID() const
 {
-	return ID;
+	return _ID;
 }
 
-void Client::setFirstName(string FirstName)
+std::ostream& operator<<(std::ostream& os, const Client& client)
 {
-	this->FirstName = FirstName;
-}
-
-void Client::setLastName(string LastName)
-{
-	this->LastName = LastName;
-}
-
-void Client::setID(string ID)
-{
-	this->ID = ID;
+	os << client._FirstName << " " << client._LastName << " " << client._ID;
+	return os;
 }

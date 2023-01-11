@@ -26,6 +26,6 @@ int main()
 		hotel.AjouterChambre(chambre);
 	}
 
-	Reservation reservation(Chambre(1, "Simple", true), hotel);
+	Reservation reservation();
 	return 0;
 }
