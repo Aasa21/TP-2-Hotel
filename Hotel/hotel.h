@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <sstream>
-#include <string>
 #include <vector>
-#include <ctime>
 #include "Chambre.h"
 
 using namespace std;
@@ -11,20 +7,20 @@ using namespace std;
 class Hotel
 {
 public:
-	Hotel(string Name = "", string Location = "", string ID = "");
-	string getName() const;
-	string getLocation() const;
+	Hotel(string Name, string Location, string ID);
 	string getId() const;
-	vector<Chambre> getChambres() const;
-	void AjouterChambre(Chambre ch);
-	void setName();
-	void setLocation();
-	void setChambres();
-	void setId();
+	Chambre getChambre(unsigned int NumeroChambre);
+	bool AjouterChambre(Chambre& ch);
+	bool SupprimerChambre(unsigned int NumeroChambre);
+	void AfficherChambres();
+	void setChambre(unsigned int NumeroChambre, Chambre ch);
+	void setPrixChambre(unsigned int NumeroChambre, int Prix);
+	unsigned int getNombreDeChambre();
+	friend std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
 private:
-	vector<Chambre> Chambres;
-	string Location;
-	string Name;
-	string ID;
+	string _Name;
+	string _Location;
+	string _ID;
+	vector<Chambre> _Chambres;
 };
 

@@ -1,62 +1,88 @@
 #include "hotel.h"
 
 Hotel::Hotel(string Name, string Location, string ID)
+: _Name(Name), _Location(Location), _ID(ID)
 {
-	this->Name = Name;
-	this->Location = Location;
-
-	srand((unsigned int)time(0));
-	
-	int IDpart = rand() %100 +1;
-	stringstream sstm;
-	sstm << Location << IDpart;
-	ID = sstm.str();
-	this->ID = ID;
-}
-
-string Hotel::getName() const
-{
-	return Name;
-}
-
-string Hotel::getLocation() const
-{
-	return Location;
 }
 
 string Hotel::getId() const
 {
-	return ID;
+	return _ID;
 }
 
-vector<Chambre> Hotel::getChambres() const
+Chambre Hotel::getChambre(unsigned int NumeroChambre)
 {
-	return Chambres;
+	for (auto ch : _Chambres)
+	{
+		if (NumeroChambre == ch.getNumero())
+		{
+			return ch;
+		}
+	}
+	cout << "Chambre " << NumeroChambre << " non trouvée" << endl;
 }
 
-void Hotel::setName()
+bool Hotel::AjouterChambre(Chambre& ch)
 {
-	this->Name = Name;
+	for (auto it : _Chambres)
+	{
+		if (ch.getNumero() == it.getNumero())
+		{
+			cout << "Chambre " << ch.getNumero() << " déjà existante" << endl;
+			return false;
+		}
+	}
+	_Chambres.push_back(ch);
+	return true;
 }
 
-void Hotel::setLocation()
+bool Hotel::SupprimerChambre(unsigned int NumeroChambre)
 {
-	this->Location = Location;
+	for (auto it = _Chambres.begin(); it != _Chambres.end(); it++)
+	{
+		if (NumeroChambre == it->getNumero())
+		{
+			_Chambres.erase(it);
+			return true;
+		}
+	}
+	cout << "Chambre " << NumeroChambre << " non trouvée" << endl;
+	return false;
 }
 
-void Hotel::setChambres()
+void Hotel::AfficherChambres()
 {
-	this->Chambres = Chambres;
+	for (auto ch : _Chambres)
+	{
+		cout << ch << endl;
+	}
 }
 
-void Hotel::setId()
+void Hotel::setChambre(unsigned int NumeroChambre, Chambre ch)
 {
-	this->ID = ID;
-
+	_Chambres.at(NumeroChambre-1) = ch;
 }
 
-void Hotel::AjouterChambre(Chambre ch)
+void Hotel::setPrixChambre(unsigned int NumeroChambre, int Prix)
 {
-	Chambres.push_back(ch);
-	
+	for (auto it = _Chambres.begin(); it != _Chambres.end(); it++)
+	{
+		if (NumeroChambre == it->getNumero())
+		{
+			it->setPrix(Prix);
+			return;
+		}
+	}	
+	cout << "Chambre " << NumeroChambre << " non trouvée" << endl;
+}
+
+unsigned int Hotel::getNombreDeChambre()
+{
+	return _Chambres.size();
+}
+
+std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
+{
+	os << "Hotel " << hotel._Name << " situé à " << hotel._Location << " avec l'ID " << hotel._ID << " a " << hotel._Chambres.size() << " chambres" << endl;
+	return os;
 }

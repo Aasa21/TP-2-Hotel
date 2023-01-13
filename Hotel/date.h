@@ -9,21 +9,21 @@ class Date
 {
 public:
 	//Constructeur
-	Date(int Day, int Month, int Year);
+	Date(int Jour, int Mois, int Annee);
 	Date();
 	//Getters et Setters
-	int getDay() const;
-	int getMonth() const;
-	int getYear() const;
+	int getJour() const;
+	int getMois() const;
+	int getAnnee() const;
 	friend std::ostream& operator<<(std::ostream& os, const Date& date);
 	bool operator>(const Date& date) const;
 	bool operator ==(const Date& date) const;
 	
 private:
-	int _Day;
-	int _Month;
-	int _Year;
-	bool DateValide(int Day, int Month, int Year);
+	int _Jour;
+	int _Mois;
+	int _Annee;
+	bool DateValide(int Jour, int Mois, int Annee);
 };
 
 

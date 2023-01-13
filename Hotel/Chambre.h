@@ -8,17 +8,17 @@ class Chambre
 {
 public:
 	//Constructeur
-	Chambre(int Price, unsigned int Numero = 0, string Type = "Erreur", bool Disponible = false);
+	Chambre(int Prix, unsigned int Numero = 0, string Type = "Erreur", bool Disponible = false);
 	//Getters et Setters
-	int getPrice() const;
+	int getPrix() const;
 	unsigned int getNumero() const;
 	bool getDisponible() const;
 	void setDisponible(bool Disponible);
 	string getType() const;
-	void setPrice(int Price);
+	void setPrix(int Prix);
 	friend std::ostream& operator<<(std::ostream& os, const Chambre& chambre);
 private:
-	int _Price;
+	int _Prix;
 	unsigned int _Numero;
 	string _Type;
 	bool _Disponible;

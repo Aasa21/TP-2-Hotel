@@ -43,7 +43,7 @@ int Date::getYear() const
 bool Date::DateValide(int d, int m, int y)
 {
 	int t[4] = { 4, 6, 9, 11 };
-	int mois = std::find(t, t + 4, m) -t;
+	int *mois = std::find(std::begin(t), std::end(t), m);
 	if (y < 0)
 	{
 		return false;
@@ -60,7 +60,7 @@ bool Date::DateValide(int d, int m, int y)
 	{
 		return false;
 	}
-	if (m == mois && d > 30)
+	if (mois == std::end(t) && d > 30)
 	{
 		return false;
 	}

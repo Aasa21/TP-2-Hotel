@@ -5,12 +5,12 @@ Chambre::Chambre(int Price, unsigned int Numero, string Type, bool Disponible)
 	_Numero = Numero;
 	_Type = Type;
 	_Disponible = Disponible;
-	_Price = Price;
+	_Prix = Price;
 }
 
-int Chambre::getPrice() const
+int Chambre::getPrix() const
 {
-	return _Price;
+	return _Prix;
 }
 
 unsigned int Chambre::getNumero() const
@@ -32,13 +32,16 @@ string Chambre::getType() const
 	return _Type;
 }
 
-void Chambre::setPrice(int Price)
+void Chambre::setPrix(int Prix)
 {
-	_Price = Price;
+	if (Prix > 0)
+	{
+		_Prix = Prix;
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Chambre& chambre)
 {
-	os << "Chambre " << chambre._Numero << " de type " << chambre._Type << " coute : " << chambre._Price << " euros" << " et est " << (chambre._Disponible ? "disponible" : "indisponible");
+	os << "Chambre " << chambre._Numero << " de type " << chambre._Type << " coute : " << chambre._Prix << " euros" << " et est " << (chambre._Disponible ? "disponible" : "indisponible");
 	return os;
 }
