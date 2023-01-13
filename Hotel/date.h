@@ -3,6 +3,7 @@
 #include <string>
 #include <time.h>
 #include <array>
+#include <algorithm>
 
 class Date
 {
