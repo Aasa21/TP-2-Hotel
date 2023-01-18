@@ -130,6 +130,7 @@
     <ClCompile Include="Chambre.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="date.cpp" />
+    <ClCompile Include="Fonctions.cpp" />
     <ClCompile Include="hotel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Reservation.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Chambre.h" />
     <ClInclude Include="client.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="Fonctions.h" />
     <ClInclude Include="hotel.h" />
     <ClInclude Include="Reservation.h" />
   </ItemGroup>

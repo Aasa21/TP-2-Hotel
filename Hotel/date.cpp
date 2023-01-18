@@ -2,13 +2,13 @@
 
 using namespace std;
 
-Date::Date(int Day, int Month, int Year)
+Date::Date(int Jour, int Mois, int Annee)
 {
-	if (DateValide(Day, Month, Year))
+	if (DateValide(Jour, Mois, Annee))
 	{
-		_Day = Day;
-		_Month = Month;
-		_Year = Year;
+		_Jour = Jour;
+		_Mois = Mois;
+		_Annee = Annee;
 	}
 	else
 	{
@@ -16,51 +16,53 @@ Date::Date(int Day, int Month, int Year)
 	}
 }
 
+
 Date::Date()
-{
+{	
 	time_t t = time(0);
-	struct tm* now = localtime(&t);
-	_Year = now->tm_year + 1900;
-	_Month = now->tm_mon + 1;
-	_Day = now->tm_mday;
+	struct tm now;
+	localtime_s(&now, &t);
+	_Annee = now.tm_year + 1900;
+	_Mois = now.tm_mon + 1;
+	_Jour = now.tm_mday;
 }
 
-int Date::getDay() const
+int Date::getJour() const
 {
-	return _Day;
+	return _Jour;
 }
 
-int Date::getMonth() const
+int Date::getMois() const
 {
-	return _Month;
+	return _Mois;
 }
 
-int Date::getYear() const
+int Date::getAnnee() const
 {
-	return _Year;
+	return _Annee;
 }
 
-bool Date::DateValide(int d, int m, int y)
+bool Date::DateValide(int Jour, int Mois, int Annee)
 {
 	int t[4] = { 4, 6, 9, 11 };
-	int *mois = std::find(std::begin(t), std::end(t), m);
-	if (y < 0)
+	int *mois = std::find(std::begin(t), std::end(t), Mois);
+	if (Annee < 0)
 	{
 		return false;
 	}
-	if (m < 1 || m > 12)
+	if (Mois < 1 || Mois > 12)
 	{
 		return false;
 	}
-	if (d < 1 || d > 31)
+	if (Jour < 1 || Jour > 31)
 	{
 		return false;
 	}
-	if (m == 2 && d > 29)
+	if (Mois == 2 && Jour > 29)
 	{
 		return false;
 	}
-	if (mois == std::end(t) && d > 30)
+	if (mois == std::end(t) && Jour > 30)
 	{
 		return false;
 	}
@@ -69,25 +71,25 @@ bool Date::DateValide(int d, int m, int y)
 
 ostream& operator<<(ostream& os, const Date& date)
 {
-	os << date._Day << "/" << date._Month << "/" << date._Year;
+	os << date._Jour << "/" << date._Mois << "/" << date._Annee;
 	return os;
 }
 
 bool Date::operator>(const Date& date) const
 {
-	if (_Year > date.getYear())
+	if (_Annee > date.getAnnee())
 	{
 		return true;
 	}
-	else if (_Year == date.getYear())
+	else if (_Annee == date.getAnnee())
 	{
-		if (_Month > date.getMonth())
+		if (_Mois > date.getMois())
 		{
 			return true;
 		}
-		else if (_Month == date.getMonth())
+		else if (_Mois == date.getMois())
 		{
-			if (_Day > date.getDay())
+			if (_Jour > date.getJour())
 			{
 				return true;
 			}
@@ -98,7 +100,7 @@ bool Date::operator>(const Date& date) const
 
 bool Date::operator==(const Date& date) const
 {
-	if (_Year == date.getYear() && _Month == date.getMonth() && _Day == date.getDay())
+	if (_Annee == date.getAnnee() && _Mois == date.getMois() && _Jour == date.getJour())
 	{
 		return true;
 	}

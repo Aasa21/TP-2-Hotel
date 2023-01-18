@@ -16,6 +16,7 @@ public:
 	unsigned int getNumeroChambre();
 	unsigned int getNombreDeNuit();
 	unsigned int getReservation();
+	int PrixTotal();
 	friend std::ostream& operator<<(std::ostream& os, const Reservation& reservation);
 	
 private:
@@ -26,5 +27,4 @@ private:
 	unsigned int _NombreDeNuit;
 	unsigned int _Reservation;
 	int _PrixTotal;
-	int PrixTotal();
 };

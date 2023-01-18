@@ -90,13 +90,13 @@ unsigned int Reservation::getReservation()
 	return _Reservation;
 }
 
-int PrixTotal()
+int Reservation::PrixTotal()
 {
 	return _hotel.getChambre(_NumeroChambre).getPrix() * _NombreDeNuit;
 }
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
 {
-	os << "Date de la réservation : " << reservation._DateReservation << " pour l'hotel : " << reservation.getHotel() << " pour le client : " << reservation.getClient() << " dans la chambre : " << reservation._NumeroChambre << " pour " << reservation._NombreDeNuit << " nuit(s) pour un prix total de " << reservation._PrixTotal << " euros" << endl;
+	os << "Date de la reservation : " << reservation._DateReservation << " pour l'hotel : " << reservation.getHotel() << " pour le client : " << reservation.getClient() << " dans la chambre : " << reservation._NumeroChambre << " de type : " << reservation.getHotel().getChambre(reservation._NumeroChambre).getType() << " pour " << reservation._NombreDeNuit << " nuit(s) pour un prix total de " << reservation._PrixTotal << " euros." << " (prix par nuit : " << reservation.getHotel().getChambre(reservation._NumeroChambre).getPrix() << " euros)" << endl;
 	return os;
 }

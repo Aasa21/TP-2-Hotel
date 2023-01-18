@@ -1,8 +1,10 @@
 #include "hotel.h"
 
 Hotel::Hotel(string Name, string Location, string ID)
-: _Name(Name), _Location(Location), _ID(ID)
 {
+	_Name = Name;
+	_Location = Location;
+	_ID = Name + Location.substr(0, 3);
 }
 
 string Hotel::getId() const
@@ -83,6 +85,6 @@ unsigned int Hotel::getNombreDeChambre()
 
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
 {
-	os << "Hotel " << hotel._Name << " situé à " << hotel._Location << " avec l'ID " << hotel._ID << " a " << hotel._Chambres.size() << " chambres" << endl;
+	os << "Hotel " << hotel._Name << " situe a " << hotel._Location << " avec l'ID " << hotel._ID << " a " << hotel._Chambres.size() << " chambres" << endl;
 	return os;
 }

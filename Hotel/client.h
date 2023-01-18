@@ -8,15 +8,15 @@ class Client
 {
 public:
 	//Constructeur
-	Client(string FirstName, string LastName, string ID);
+	Client(string prenom, string nom, string ID);
 	//Getters et Setters
-	string getFirstName() const;
-	string getLastNane() const;
+	string getPrenom() const;
+	string getNom() const;
 	string getID() const;
 	friend std::ostream& operator<<(std::ostream& os, const Client& client);
 private:
-	string _FirstName;
-	string _LastName;
+	string _prenom;
+	string _nom;
 	string _ID;
 };
 
