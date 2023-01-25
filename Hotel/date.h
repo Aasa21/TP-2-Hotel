@@ -11,6 +11,7 @@ public:
 	//Constructeur
 	Date(int Jour, int Mois, int Annee);
 	Date();
+
 	//Getters et Setters
 	int getJour() const;
 	int getMois() const;
@@ -20,6 +21,7 @@ public:
 	bool operator ==(const Date& date) const;
 	
 private:
+	//Dclaration des variables privées
 	int _Jour;
 	int _Mois;
 	int _Annee;
