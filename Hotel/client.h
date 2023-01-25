@@ -10,10 +10,12 @@ public:
 	//Constructeur
 	Client(string prenom, string nom, string ID);
 
-	//Getters et Setters
+	//Getters
 	string getPrenom() const;
 	string getNom() const;
 	string getID() const;
+
+	//Surcharge
 	friend std::ostream& operator<<(std::ostream& os, const Client& client);
 private:
 	//Déclaration des variables privées

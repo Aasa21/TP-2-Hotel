@@ -8,8 +8,10 @@ class Hotel
 {
 public:
 	Hotel(string Name, string Location, string ID);
+	//Getters
 	string getId() const;
 	Chambre getChambre(unsigned int NumeroChambre);
+	
 	bool AjouterChambre(Chambre& ch);
 	bool SupprimerChambre(unsigned int NumeroChambre);
 	void AfficherChambres();
@@ -18,6 +20,7 @@ public:
 	unsigned int getNombreDeChambre();
 	friend std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
 private:
+	//Déclaration des variables privées
 	string _Name;
 	string _Location;
 	string _ID;

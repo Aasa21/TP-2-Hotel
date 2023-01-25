@@ -8,6 +8,7 @@ Client::Client(string prenom, string nom, string ID)
 
 }
 	
+//Getters
 string Client::getPrenom() const
 {
 	return _prenom;
@@ -23,6 +24,7 @@ string Client::getID() const
 	return _ID;
 }
 
+//Surcharge
 std::ostream& operator<<(std::ostream& os, const Client& client)
 {
 	os << client._prenom << " " << client._nom <<endl;

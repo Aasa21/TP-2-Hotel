@@ -5,6 +5,8 @@
 
 using namespace std;
 
+// Liste des fonctions
+
 void RemplirHotel(Hotel& hotel);
 void AfficherInfoReservation(vector<Reservation>& reservations, vector<Client>& clients, Date DateReservation, Hotel& hotel, unsigned int NumeroChambre);
 void CreerNouvelleReservation(vector<Reservation>& reservations, vector<Client>& clients, Date DateReservation, Hotel& hotel, unsigned int NumeroChambre);

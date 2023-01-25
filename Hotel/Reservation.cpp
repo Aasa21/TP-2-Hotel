@@ -17,6 +17,7 @@ Reservation::Reservation(Date DateReservation, Hotel& hotel, Client& client, uns
 	}
 }
 
+//Setters
 void Reservation::setDateReservation(Date DateReservation)
 {
 	if (_hotel.getChambre(_NumeroChambre).getDisponible() && DateReservation > Date())
@@ -60,6 +61,7 @@ bool Reservation::setNumeroChambre(unsigned int NumeroChambre)
 	}
 }
 
+//Getters
 Client Reservation::getClient() const
 {
 	return _client;
@@ -90,11 +92,13 @@ unsigned int Reservation::getReservation()
 	return _Reservation;
 }
 
+//Fonction qui retourne le prix
 int Reservation::PrixTotal()
 {
 	return _hotel.getChambre(_NumeroChambre).getPrix() * _NombreDeNuit;
 }
 
+//Surcharge
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
 {
 	os << "Date de la reservation : " << reservation._DateReservation << " pour l'hotel : " << reservation.getHotel() << " pour le client : " << reservation.getClient() << " dans la chambre : " << reservation._NumeroChambre << " de type : " << reservation.getHotel().getChambre(reservation._NumeroChambre).getType() << " pour " << reservation._NombreDeNuit << " nuit(s) pour un prix total de " << reservation._PrixTotal << " euros." << " (prix par nuit : " << reservation.getHotel().getChambre(reservation._NumeroChambre).getPrix() << " euros)" << endl;

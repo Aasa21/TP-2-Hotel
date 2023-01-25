@@ -10,13 +10,17 @@ public:
 	//Constructeur
 	Chambre(int Prix, unsigned int Numero = 0, string Type = "Erreur", bool Disponible = false);
 
-	//Getters et Setters
+	//Getters 
 	int getPrix() const;
 	unsigned int getNumero() const;
 	bool getDisponible() const;
-	void setDisponible(bool Disponible);
 	string getType() const;
+	
+	//Setters
+	void setDisponible(bool Disponible);
 	void setPrix(int Prix);
+
+	//Surcharge
 	friend std::ostream& operator<<(std::ostream& os, const Chambre& chambre);
 private:
 	//Déclaration des variables privées

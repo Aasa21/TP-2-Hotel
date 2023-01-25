@@ -27,6 +27,7 @@ Date::Date()
 	_Jour = now.tm_mday;
 }
 
+//Getters
 int Date::getJour() const
 {
 	return _Jour;
@@ -42,6 +43,7 @@ int Date::getAnnee() const
 	return _Annee;
 }
 
+//Check si la date est valide, test si le jour est dans le mois, si l'annee est positive, si le mois est entre 1 et 12
 bool Date::DateValide(int Jour, int Mois, int Annee)
 {
 	int t[4] = { 4, 6, 9, 11 };
@@ -69,6 +71,7 @@ bool Date::DateValide(int Jour, int Mois, int Annee)
 	return true;
 }
 
+//Surcharges
 ostream& operator<<(ostream& os, const Date& date)
 {
 	os << date._Jour << "/" << date._Mois << "/" << date._Annee;

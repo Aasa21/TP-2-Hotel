@@ -7,6 +7,7 @@ Hotel::Hotel(string Name, string Location, string ID)
 	_ID = Name + Location.substr(0, 3);
 }
 
+//Getters
 string Hotel::getId() const
 {
 	return _ID;
@@ -21,16 +22,22 @@ Chambre Hotel::getChambre(unsigned int NumeroChambre)
 			return ch;
 		}
 	}
-	cout << "Chambre " << NumeroChambre << " non trouvée" << endl;
+	cout << "Chambre " << NumeroChambre << " non trouvee" << endl;
 }
 
+unsigned int Hotel::getNombreDeChambre()
+{
+	return _Chambres.size();
+}
+
+//Autres fonctions
 bool Hotel::AjouterChambre(Chambre& ch)
 {
 	for (auto it : _Chambres)
 	{
 		if (ch.getNumero() == it.getNumero())
 		{
-			cout << "Chambre " << ch.getNumero() << " déjà existante" << endl;
+			cout << "Chambre " << ch.getNumero() << " deja existante" << endl;
 			return false;
 		}
 	}
@@ -60,6 +67,7 @@ void Hotel::AfficherChambres()
 	}
 }
 
+//Setters
 void Hotel::setChambre(unsigned int NumeroChambre, Chambre ch)
 {
 	_Chambres.at(NumeroChambre-1) = ch;
@@ -75,14 +83,10 @@ void Hotel::setPrixChambre(unsigned int NumeroChambre, int Prix)
 			return;
 		}
 	}	
-	cout << "Chambre " << NumeroChambre << " non trouvée" << endl;
+	cout << "Chambre " << NumeroChambre << " non trouvee" << endl;
 }
 
-unsigned int Hotel::getNombreDeChambre()
-{
-	return _Chambres.size();
-}
-
+//Surcharge
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
 {
 	os << "Hotel " << hotel._Name << " situe a " << hotel._Location << " avec l'ID " << hotel._ID << " a " << hotel._Chambres.size() << " chambres" << endl;

@@ -12,10 +12,12 @@ public:
 	Date(int Jour, int Mois, int Annee);
 	Date();
 
-	//Getters et Setters
+	//Getters
 	int getJour() const;
 	int getMois() const;
 	int getAnnee() const;
+
+	//Surcharge
 	friend std::ostream& operator<<(std::ostream& os, const Date& date);
 	bool operator>(const Date& date) const;
 	bool operator ==(const Date& date) const;
